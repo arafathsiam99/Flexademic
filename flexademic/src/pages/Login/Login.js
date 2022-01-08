@@ -5,8 +5,8 @@ import './Login.css'
 const Login = () => {
   return (
     <div>
-      <div className="container border border-secondary">
-        <div className="row border border-primary login_style">
+      <div className="container ">
+        <div className="row login_style">
           <div className="col-md-6">
             <img className="w-100" src={login}></img>
           </div>
