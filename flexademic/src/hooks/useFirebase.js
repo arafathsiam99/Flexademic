@@ -8,6 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/firebase.config";
 initializeFirebase();
+
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
