@@ -7,11 +7,12 @@ import Register from "./pages/Register/Register";
 import NotFound from "./pages/NotFound/NotFound";
 import Footer from "./pages/Footer/Footer";
 import Header from "./pages/Header/Header";
+import AddCourse from "./pages/AddCourse/AddCourse";
 
 function App() {
   return (
     <Router>
-        <Header></Header>
+      <Header></Header>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -25,9 +26,12 @@ function App() {
         <Route exact path="/register">
           <Register />
         </Route>
+        <Route path="/addcourse">
+          <AddCourse></AddCourse>
+        </Route>
       </Switch>
-        <Footer></Footer>
-        {/* <Route exact path="*">
+      <Footer></Footer>
+      {/* <Route exact path="*">
           <NotFound />
         </Route> */}
     </Router>
