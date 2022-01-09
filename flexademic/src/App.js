@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import Footer from "./pages/Footer/Footer";
 import Header from "./pages/Header/Header";
 import AddCourse from "./pages/AddCourse/AddCourse";
+import Event from "./pages/Event/Event";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route path="/addcourse">
           <AddCourse></AddCourse>
+        </Route>
+        <Route path="/event">
+        <Event></Event>
         </Route>
       </Switch>
       <Footer></Footer>
