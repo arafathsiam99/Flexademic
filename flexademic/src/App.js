@@ -27,7 +27,7 @@ function App() {
         <Route exact path="/register">
           <Register />
         </Route>
-        <Route path="/addcourse">
+        <Route path="/add-course">
           <AddCourse></AddCourse>
         </Route>
         <Route path="/event">
