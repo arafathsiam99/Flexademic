@@ -1,11 +1,11 @@
 import React from "react";
-
+import "./Footer.css";
 const Footer = () => {
   return (
-    <section className="container">
+    <section className="container mt-5">
       <div className="row">
         <div className="col-md-3">
-          <h1>INFORMATION</h1>
+          <h3 className="custom-text">INFORMATION</h3>
           <ol type="number">
             <li>About us</li>
             <li>Our Stories</li>
@@ -15,7 +15,7 @@ const Footer = () => {
           </ol>
         </div>
         <div className="col-md-3">
-          <h1>STUDENT HELP</h1>
+          <h3 className="custom-text">STUDENT HELP</h3>
           <ol type="number">
             <li>My Info</li>
             <li>My Questions</li>
@@ -25,10 +25,10 @@ const Footer = () => {
           </ol>
         </div>
         <div className="col-md-3">
-          <h1>INSTAGRAM</h1>
+          <h3 className="custom-text">INSTAGRAM</h3>
         </div>
         <div className="col-md-3">
-          <h1>CONTACT</h1>
+          <h3 className="custom-text">CONTACT</h3>
           <p>
             PO Box UN152468, 1 Street North, New <br /> Towm, California, USA
           </p>
@@ -40,8 +40,7 @@ const Footer = () => {
 
       <div className="row">
         <div className="col-md-4">
-          <img src="https://i.ibb.co/zfC1ncq/logo-2-1.png" alt="" />
-          This is Footer
+          <h2 className="custom-banner">FlexaDemic</h2>
         </div>
         <div className="col-md-4">
           <p>© All Rights Reserved. Powered By FlexaDemic</p>

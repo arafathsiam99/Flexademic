@@ -1,0 +1,26 @@
+.custom-text {
+  color: #082b6c;
+  font-weight: 500;
+}
+/* .custom-card {
+  justify-content: center;
+} */
+.custom-img {
+  display: block;
+  margin-left: 50px;
+  width: 50%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+/* .custom-sticker{
+    width: 100%;
+} */
+.custom-back {
+  background-color: rgb(217, 216, 225);
+}
+.overlay:hover {
+  background: aqua;
+}
+.custom-bg {
+  background-color: #082b6c;
+}
