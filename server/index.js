@@ -25,6 +25,7 @@ async function run() {
         // database collections
         const usersCollection = database.collection('users');
         const courseCollection = database.collection('course');
+        const courseContentCollection = database.collection('courseContent');
 
         
 
@@ -55,7 +56,7 @@ async function run() {
             res.json(users);
         });
 
-        // get all users
+        // get single user
         app.get('/user/:id', async (req, res) => {
             const id = req.params.id;
             console.log(req);
@@ -81,7 +82,7 @@ async function run() {
             res.json(teachers);
         });
 
-        // create/add new user 
+        // create/add course
         app.post('/add-course', async (req, res) => {
             const creator = req.body.creator;
             const title = req.body.title;
@@ -102,20 +103,44 @@ async function run() {
             res.json(result);
         });
 
-        // get all users
+        // get all courses
         app.get('/all-courses', async (req, res) => {
             const cursor = courseCollection.find({});
             const courses = await cursor.toArray();
             res.json(courses);
         });
 
-        // get all users
+        // get single course
         app.get('/course/:id', async (req, res) => {
             const id = req.params.id;
             console.log(req);
             const query = { _id: ObjectId(id) };
             const course = await courseCollection.findOne(query);
             res.send(course);
+        });
+
+        // create/add course content
+        app.post('/course/:id/content', async (req, res) => {
+            const courseId = req.params.id;
+            const content1 = req.body.content1
+            const content2 = req.body.content2
+            const content3 = req.body.content3
+
+            const courseContent = {
+                courseId, content1, content2, content3
+            }
+            const result = await courseContentCollection.insertOne(courseContent);
+            console.log(result);
+            res.json(result);
+        });
+        // create/add course content
+        app.get('/course/:id/content', async (req, res) => {
+            const courseId = req.params.id;
+            console.log(courseId);
+            const query = { courseId: courseId };
+            const courseContent = await courseContentCollection.findOne(query);
+            console.log(courseContent);
+            res.send(courseContent);
         });
     }
     finally {
