@@ -1,0 +1,13 @@
+.event_style {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.event_row {
+  width: 80%;
+  border: 3px dashed violet;
+  margin: 10px 0;
+  padding: 10px;
+}

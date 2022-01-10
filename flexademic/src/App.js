@@ -9,6 +9,7 @@ import Footer from "./pages/Footer/Footer";
 import Header from "./pages/Header/Header";
 import AddCourse from "./pages/AddCourse/AddCourse";
 import Event from "./pages/Event/Event";
+import AboutUs from "./pages/AboutUs/AboutUs";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route path="/event">
         <Event></Event>
+        </Route>
+        <Route path="/aboutus" >
+          <AboutUs></AboutUs>
         </Route>
       </Switch>
       <Footer></Footer>
