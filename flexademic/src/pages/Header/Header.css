@@ -1,4 +1,9 @@
-.custom-banner{
-     color: #082b6c;
-    font-weight: 800;
+
+.menu-item{
+    text-decoration: none;
+    color: #082b6c;
+    padding: 6px 10px;
+    margin: 10px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
 }

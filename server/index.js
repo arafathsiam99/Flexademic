@@ -165,9 +165,22 @@ async function run() {
             res.json(result);
         });
 
+         // get all enrolled courses
+         app.get('/all-enrolled-courses', async (req, res) => {
+            const cursor = courseEnrollCollection.find({});
+            const courses = await cursor.toArray();
+            res.json(courses);
+        });
 
-
-
+        // get individual enrolled courses
+        app.get('/course-enrolled/:email', async (req, res) => {
+            const email = req.params.email;
+            const cursor = courseEnrollCollection.find({});
+            const enrollCourses = await cursor.toArray();
+            const myEnrolledCourses = enrollCourses.filter(c => c.email === email)
+            console.log(myEnrolledCourses.length);
+            res.json(myEnrolledCourses);
+        });
 
         
         // enroll course by student

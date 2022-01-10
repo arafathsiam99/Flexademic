@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import useFirebase from "../../hooks/useFirebase";
 import img from "../../images/login.jpg";
 import './Login.css'
+
 const Login = () => {
-  const {login,error}=useFirebase()
+
+  const {login, error}=useFirebase()
   const history= useHistory()
   const location= useLocation()
   const emailRef=useRef()
@@ -25,7 +27,7 @@ const Login = () => {
       <div className="container ">
         <div className="row login_style">
           <div className="col-md-6">
-            <img className="w-100" src={img}></img>
+            <img className="w-100" src={img} alt="#" />
           </div>
           <div className="col-md-6">
             <form action="" onSubmit={handleLogin}>
@@ -56,7 +58,7 @@ const Login = () => {
               {
                 error && <p className="text-danger">{error}</p>
               }
-                <button className="btn btn-primary w-100" >Login</button>
+                <button className="btn btn-primary w-100" type="submit" >Login</button>
                 <p>Have You Registerd?<Link to="register">Register</Link></p>
             </div>
             </form>
