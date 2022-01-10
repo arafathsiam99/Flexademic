@@ -1,6 +1,6 @@
-import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
 import useFirebase from "../../hooks/useFirebase";
 import "./Header.css";
 
@@ -8,11 +8,23 @@ const Header = () => {
 
   // getting user from useAuth
   const { user, logout } = useFirebase();
+  const [userInfo, setUserInfo] = useState({});
+  const email = user.email;
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/user/${email}`)
+    .then(res => res.json())
+        .then(data => {
+          
+          setUserInfo(data);
+          console.log(data);
+        })
+  }, [email])
 
 
   return (
     <Navbar bg="light" expand="lg">
-      <Container Fluid>
+      <Container fluid>
         <Navbar.Brand href="#home">
           <h2 className="custom-banner ">FlexaDemic</h2>
         </Navbar.Brand>
@@ -24,10 +36,45 @@ const Header = () => {
             <Link className="menu-item" to="/events">Events</Link>
             <Link className="menu-item" to="/teachers">Teachers</Link>
             <Link className="menu-item" to="/students">Students</Link>
-            <Link className="menu-item" to="/about">About US</Link>
-            <Link className="menu-item" to="/contact">Contact Us</Link>
-            <Link className="menu-item" to="/login">Login</Link>
+            <Link className="menu-item" to="/about">About</Link>
+            <Link className="menu-item" to="/contact">Contact</Link>
+            { !user?.email && 
+                        <NavLink className="menu-item" to="/login"> <i className="fas fa-sign-in-alt"></i> Login</NavLink>
+                    }
           </Nav>
+          {
+            user?.email && 
+            <Nav className="mr-auto">
+            {/* showing logout login button and user name  */}
+                
+                { userInfo.userType==='admin' &&
+                  <NavDropdown className="menu-item" title="Dashboard" id="basic-nav-dropdown">
+                    <NavDropdown.Item><Link className="menu-item" to="/add-course">Add Course</Link>  </NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/add-course">All Courses</Link>  </NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/add-course">My Courses</Link>  </NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/all-course">All Enrolled Courses</Link>  </NavDropdown.Item>
+
+                  </NavDropdown>
+                }
+                { userInfo.userType==='Teacher' &&
+                  <NavDropdown className="menu-item" title="Dashboard" id="basic-nav-dropdown">
+                    <NavDropdown.Item><Link className="menu-item" to="/add-course">Add Course</Link>  </NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/add-course">My Courses</Link>  </NavDropdown.Item>
+
+                  </NavDropdown>
+                }
+                { userInfo.userType==='Student' &&
+                  <NavDropdown className="menu-item" title="Dashboard" id="basic-nav-dropdown">
+                    <NavDropdown.Item><Link className="menu-item" to="/add-course">My Courses</Link>  </NavDropdown.Item>
+
+                  </NavDropdown>
+                }
+                
+                { user?.email &&
+                    <NavLink className="menu-item" onClick={logout} to="/home"><i className="fas fa-sign-out-alt"></i> LogOut</NavLink>
+                }
+            </Nav>
+          }
         </Navbar.Collapse>
       </Container>
     </Navbar>

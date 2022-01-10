@@ -59,12 +59,13 @@ async function run() {
         });
 
         // get single user
-        app.get('/user/:id', async (req, res) => {
-            const id = req.params.id;
-            console.log(req);
-            const query = { _id: ObjectId(id) };
-            const watch = await usersCollection.findOne(query);
-            res.send(watch);
+        app.get('/user/:email', async (req, res) => {
+            const email = req.params.email;
+            console.log(email);
+            const query = { email: email };
+            const user = await usersCollection.findOne(query);
+            console.log(user);
+            res.send(user);
         });
 
         // get all students
