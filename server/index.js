@@ -26,6 +26,8 @@ async function run() {
         const usersCollection = database.collection('users');
         const courseCollection = database.collection('course');
         const courseContentCollection = database.collection('courseContent');
+        const courseEnrollCollection = database.collection('courseEnroll');
+
 
         
 
@@ -84,7 +86,8 @@ async function run() {
 
         // create/add course
         app.post('/add-course', async (req, res) => {
-            const creator = req.body.creator;
+            const creatorName = req.body.creatorName;
+            const creatorEmail = req.body.creatorEmail;
             const title = req.body.title;
             const description = req.body.description;
             const fees = req.body.fees;
@@ -94,7 +97,7 @@ async function run() {
             const encodedImage = imageData.toString("base64");
             const imageBuffer = Buffer.from(encodedImage, 'base64');
             const course = {
-                creator, title, description, fees, duration,
+                creatorName,creatorEmail, title, description, fees, duration,
                 image: imageBuffer
             }
             console.log("files:", req.files);
@@ -108,6 +111,16 @@ async function run() {
             const cursor = courseCollection.find({});
             const courses = await cursor.toArray();
             res.json(courses);
+        });
+
+        // get all courses
+        app.get('/course/:email', async (req, res) => {
+            const email = req.params.email;
+            const cursor = courseCollection.find({});
+            const courses = await cursor.toArray();
+            const myCourses = courses.filter(c => c.creatorEmail === email)
+            console.log(myCourses.length);
+            res.json(myCourses);
         });
 
         // get single course
@@ -133,7 +146,8 @@ async function run() {
             console.log(result);
             res.json(result);
         });
-        // create/add course content
+
+        // get course content
         app.get('/course/:id/content', async (req, res) => {
             const courseId = req.params.id;
             console.log(courseId);
@@ -142,6 +156,15 @@ async function run() {
             console.log(courseContent);
             res.send(courseContent);
         });
+
+        // enroll course by student
+        app.post('/course-enroll', async (req, res) => {
+            const courseEnroll = req.body;
+            const result = await courseEnrollCollection.insertOne(courseEnroll);
+            console.log(result);
+            res.json(result);
+        });
+
     }
     finally {
         // await client.close();
