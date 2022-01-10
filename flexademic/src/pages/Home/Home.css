@@ -24,3 +24,10 @@
 .custom-bg {
   background-color: #082b6c;
 }
+.custom-font {
+  color: white;
+  font-weight: 800;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
