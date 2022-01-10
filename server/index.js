@@ -46,6 +46,30 @@ async function run() {
             res.json(result);
         });
 
+        // get all users
+        app.get('/all-users', async (req, res) => {
+            const cursor = usersCollection.find({});
+            const users = await cursor.toArray();
+            res.json(users);
+        });
+
+        // get all students
+        app.get('/students', async (req, res) => {
+            const cursor = usersCollection.find({});
+            const users = await cursor.toArray();
+            const students = users.filter(user => user.userType === 'student')
+            console.log(students);
+            res.json(students);
+        });
+        // get all teachers
+        app.get('/teachers', async (req, res) => {
+            const cursor = usersCollection.find({});
+            const users = await cursor.toArray();
+            const teachers = users.filter(user => user.userType === 'teacher')
+            console.log(teachers);
+            res.json(teachers);
+        });
+
         // // new user created/updated (for google sign-in)
         // app.put('/users', async (req, res) => {
         //     const user = req.body;
