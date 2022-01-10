@@ -16,6 +16,8 @@ const useFirebase = () => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const auth = getAuth();
+
+  
   const registration = (name, email, password) => {
     setIsLoading(true);
     alert("registration is clicked", email, password);

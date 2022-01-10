@@ -47,7 +47,7 @@ const Register = () => {
     const newData = { name, email, password};
     console.log(newData);
     
-    // registration(newData.name, newData.email, newData.password);
+    registration(newData.name, newData.email, newData.password);
   };
 
 
