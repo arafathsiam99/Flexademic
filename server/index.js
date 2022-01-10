@@ -24,6 +24,8 @@ async function run() {
         const database = client.db('flexaDemic');
         // database collections
         const usersCollection = database.collection('users');
+        const courseCollection = database.collection('course');
+
         
 
         // create/add new user 
@@ -53,6 +55,15 @@ async function run() {
             res.json(users);
         });
 
+        // get all users
+        app.get('/user/:id', async (req, res) => {
+            const id = req.params.id;
+            console.log(req);
+            const query = { _id: ObjectId(id) };
+            const watch = await usersCollection.findOne(query);
+            res.send(watch);
+        });
+
         // get all students
         app.get('/students', async (req, res) => {
             const cursor = usersCollection.find({});
@@ -70,15 +81,42 @@ async function run() {
             res.json(teachers);
         });
 
-        // // new user created/updated (for google sign-in)
-        // app.put('/users', async (req, res) => {
-        //     const user = req.body;
-        //     const filter = { email: user.email };
-        //     const options = { upsert: true };
-        //     const updateDoc = { $set: user };
-        //     const result = await usersCollection.updateOne(filter, updateDoc, options);
-        //     res.json(result);
-        // });
+        // create/add new user 
+        app.post('/add-course', async (req, res) => {
+            const creator = req.body.creator;
+            const title = req.body.title;
+            const description = req.body.description;
+            const fees = req.body.fees;
+            const duration = req.body.duration;
+            const image = req.files.image;
+            const imageData = image.data;
+            const encodedImage = imageData.toString("base64");
+            const imageBuffer = Buffer.from(encodedImage, 'base64');
+            const course = {
+                creator, title, description, fees, duration,
+                image: imageBuffer
+            }
+            console.log("files:", req.files);
+            const result = await courseCollection.insertOne(course);
+            console.log(result);
+            res.json(result);
+        });
+
+        // get all users
+        app.get('/all-courses', async (req, res) => {
+            const cursor = courseCollection.find({});
+            const courses = await cursor.toArray();
+            res.json(courses);
+        });
+
+        // get all users
+        app.get('/course/:id', async (req, res) => {
+            const id = req.params.id;
+            console.log(req);
+            const query = { _id: ObjectId(id) };
+            const course = await courseCollection.findOne(query);
+            res.send(course);
+        });
     }
     finally {
         // await client.close();
