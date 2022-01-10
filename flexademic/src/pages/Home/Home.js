@@ -103,7 +103,7 @@ const Home = () => {
         {/* OUR GALLERY */}
         <h1>OUR GALLERY</h1>
         <div className="row">
-          <div className="col-md-4 container">
+          <div className="col-md-4 ">
             <div className="overlay">
               <img
                 src="https://i.ibb.co/4d17FnD/pexels-photo-2781814.png"
@@ -111,7 +111,7 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="col-md-4 container">
+          <div className="col-md-4 ">
             <div className="overlay">
               <img
                 src="https://i.ibb.co/5GMHFYX/pexels-photo-7972359.png"
@@ -119,7 +119,7 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="col-md-4 container">
+          <div className="col-md-4">
             <div className="overlay">
               <img
                 src="https://i.ibb.co/8MXwtCx/Father-and-son-going-to-kindergarten.jpg"
@@ -130,7 +130,7 @@ const Home = () => {
         </div>
 
         <div className="row">
-          <div className="col-md-4 container">
+          <div className="col-md-4 ">
             <div className="overlay">
               <img
                 src="https://i.ibb.co/YLPxcjS/Group-of-kids-return-to-school-during-the-pandemic.jpg"
@@ -138,7 +138,7 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="col-md-4 container">
+          <div className="col-md-4 ">
             <div className="overlay">
               <img
                 src="https://i.ibb.co/N77qTCx/Young-student-watching-lesson-online-and-studying-from-home-Girl-using-laptop-for-online-lessons-Hom.jpg"
@@ -146,7 +146,7 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="col-md-4 container">
+          <div className="col-md-4">
             <div className="overlay">
               <img
                 src="https://i.ibb.co/rGMSSvy/Happy-African-American-student-raising-her-hand-to-ask-a-question-during-lecture-in-the-classroom.jpg"
@@ -296,7 +296,7 @@ const Home = () => {
       </div>
 
       {/* Subscription Section */}
-      <div className="subscription custom-bg mt-5 mb-5">
+      <div className="subscription custom-bg mt-5 mb-5 text-light">
         <div className="row">
           <div className="col-md-6">
             <div className="justify-content-center my-5 ms-5">
@@ -305,7 +305,7 @@ const Home = () => {
               <input type="submit" />
             </div>
           </div>
-          <div className="col-md-6"></div>
+          <div className="col-md-6 custom-font">SUBCRIBE WEEKLY NEWSLETTER</div>
         </div>
       </div>
     </section>
