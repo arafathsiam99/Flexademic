@@ -27,7 +27,7 @@ async function run() {
         const courseCollection = database.collection('course');
         const courseContentCollection = database.collection('courseContent');
         const courseEnrollCollection = database.collection('courseEnroll');
-
+        const newsEventCollection = database.collection('newsEvent');
 
         
 
@@ -163,6 +163,26 @@ async function run() {
             const result = await courseEnrollCollection.insertOne(courseEnroll);
             console.log(result);
             res.json(result);
+        });
+
+
+
+
+
+        
+        // enroll course by student
+        app.post('/add/news-events', async (req, res) => {
+            const newsEvent = req.body;
+            const result = await newsEventCollection.insertOne(newsEvent);
+            console.log(result);
+            res.json(result);
+        });
+
+        // get all news events
+        app.get('/new-events', async (req, res) => {
+            const cursor = newsEventCollection.find({});
+            const newsEvents = await cursor.toArray();
+            res.json(newsEvents);
         });
 
     }
