@@ -18,6 +18,7 @@ import CourseContent from "./pages/CourseContent/CourseContent";
 import CourseEnroll from "./pages/CourseEnroll/CourseEnroll";
 import Teachers from "./pages/Teachers/Teachers";
 import MyEnrolledCourses from "./pages/Courses/MyEnrolledCourses";
+import Students from "./pages/Students/Students";
 
 function App() {
   return (
@@ -62,7 +63,7 @@ function App() {
         <Route path="/my-enrolled-course">
           <MyEnrolledCourses />
         </Route>
-        <Route path="/event">
+        <Route path="/events">
         <Event></Event>
         </Route>
         <Route path="/about" >
@@ -70,6 +71,9 @@ function App() {
         </Route>
         <Route path="/teachers" >
           <Teachers></Teachers>
+        </Route>
+        <Route path="/students" >
+          <Students />
         </Route>
       </Switch>
       <Footer></Footer>

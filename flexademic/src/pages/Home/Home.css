@@ -14,7 +14,7 @@
     width: 100%;
     opacity: 0;
     transition: 0.5s ease;
-    background-color: rgba(255, 68, 0, 0.541);
+    background-color: rgba(47, 25, 240, 0.541);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,13 +112,13 @@
     border-radius: 0;
 }
 
-.custom-back {
+/* .custom-back {
     height: 200px;
     background-image: url("https://i.ibb.co/CzQ5GxM/counter-bg.png");
     background-color: #0c0c0c;
     color: white;
     align-items: center;
-}
+} */
 
 @media (max-width: 991.98px) {
     .news h2 {

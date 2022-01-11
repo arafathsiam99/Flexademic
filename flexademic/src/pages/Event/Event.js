@@ -1,26 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Event.css";
 function Event() {
+
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/news-events')
+    .then((response) => response.json())
+    .then((response) => setEvents(response))
+  })
+
+
   return (
     <div>
       <div className="container event_style">
         <h1>Events Board</h1>
-        <div className="event_row">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea,
-          laboriosam vero repellat vel molestiae, maxime maiores nesciunt fugit
-          possimus sit, eum nihil aspernatur nam inventore! Saepe corporis
-          fugiat architecto ab, excepturi mollitia eius inventore reiciendis
-          asperiores aspernatur quo modi, iste doloribus ducimus exercitationem
-          omnis debitis est magnam fuga cumque velit.
-        </div>
-        <div className="event_row">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea,
-          laboriosam vero repellat vel molestiae, maxime maiores nesciunt fugit
-          possimus sit, eum nihil aspernatur nam inventore! Saepe corporis
-          fugiat architecto ab, excepturi mollitia eius inventore reiciendis
-          asperiores aspernatur quo modi, iste doloribus ducimus exercitationem
-          omnis debitis est magnam fuga cumque velit.
-        </div>
+        {
+          events.map((event) => 
+          <div className="event_row" key={event._id}>
+            <h3> {event.title}</h3>
+            <p> {event.description}</p>
+          </div>
+           )
+        }
+        
       </div>
     </div>
   );

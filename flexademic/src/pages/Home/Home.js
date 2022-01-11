@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Carousel } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
@@ -113,6 +114,7 @@ const Home = () => {
                             <Card>
                                 <Card.Img
                                     variant="top"
+                                    style={{'height': '250px'}}
                                     src={`data:image/png;base64, ${course.image}`}
                                 />
                                 <Card.Body>
@@ -120,9 +122,12 @@ const Home = () => {
                                     {course.title}
                                     </Card.Title>
                                     <Card.Text>
-                                        {course.description}
+                                        {course.description.slice(0,100)}
                                     </Card.Text>
                                 </Card.Body>
+                                <Card.Footer>
+                                    <Link to='/courses'><button className="btn btn-primary w-100">See All Courses</button></Link>
+                                </Card.Footer>
                             </Card>
                         </div>
                     
@@ -143,7 +148,6 @@ const Home = () => {
                                     alt=""
                                 />
                                 <div className="overlay">
-                                    <h3>Test Name</h3>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +158,6 @@ const Home = () => {
                                     alt=""
                                 />
                                 <div className="overlay">
-                                    <h3>Test Name</h3>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +168,6 @@ const Home = () => {
                                     alt=""
                                 />
                                 <div className="overlay">
-                                    <h3>Test Name</h3>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +182,6 @@ const Home = () => {
                                     alt=""
                                 />
                                 <div className="overlay">
-                                    <h3>Test Name</h3>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +192,6 @@ const Home = () => {
                                     alt=""
                                 />
                                 <div className="overlay">
-                                    <h3>Test Name</h3>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +202,6 @@ const Home = () => {
                                     alt=""
                                 />
                                 <div className="overlay">
-                                    <h3>Test Name</h3>
                                 </div>
                             </div>
                         </div>
@@ -210,23 +209,23 @@ const Home = () => {
                 </div>
                 {/* Counter Section */}
                 <div className="container">
-                    <div className="row custom-back ">
-                        <div className="col-lg-3">
+                    <div className="row custom-back mt-5">
+                        <div className="col-lg-3 text-center">
                             <i className="fas fa-users custom-sticker"></i>
                             <h3>94,532</h3>
                             <p>FOREIGN FOLLOWERS</p>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 text-center">
                             <i className="fas fa-book-open"></i>
                             <h3>11,223</h3>
                             <p>CLASSES COMPLETE</p>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 text-center">
                             <i className="fas fa-trophy"></i>
                             <h3>282,673</h3>
                             <p>STUDENTS ENROLLED</p>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 text-center">
                             <i className="fas fa-user-check"></i>
                             <h3>370</h3>
                             <p>CERTIFIED TEACHERS</p>
@@ -264,7 +263,7 @@ const Home = () => {
                                         </div>
                                     </div>
                                     <div className="card-body">
-                                        <h3 className="name">Danien</h3>
+                                        <h3 className="name">Alex</h3>
                                         <h6 className="sub-head">Manager</h6>
                                         <p className="card-text">
                                             Some quick example text to build on
@@ -300,8 +299,8 @@ const Home = () => {
                                     </div>
 
                                     <div className="card-body">
-                                        <h3 className="name">Danien</h3>
-                                        <h6 className="sub-head">Manager</h6>
+                                        <h3 className="name">Tom</h3>
+                                        <h6 className="sub-head">CEO</h6>
                                         <p className="card-text">
                                             Some quick example text to build on
                                             the card title and make up the bulk
@@ -336,8 +335,8 @@ const Home = () => {
                                     </div>
 
                                     <div className="card-body">
-                                        <h3 className="name">Danien</h3>
-                                        <h6 className="sub-head">Manager</h6>
+                                        <h3 className="name">Leo</h3>
+                                        <h6 className="sub-head">CTO</h6>
                                         <p className="card-text">
                                             Some quick example text to build on
                                             the card title and make up the bulk
@@ -365,7 +364,7 @@ const Home = () => {
                                 />
                             </div>
                             <div className="col-7">
-                                <h4>Nafiz Anam</h4>
+                                <h4>Hafijur Rahman</h4>
                                 <p>
                                     Some quick example text to build on the card
                                     title and make up the bulk of the card's
@@ -384,7 +383,7 @@ const Home = () => {
                                 />
                             </div>
                             <div className="col-7">
-                                <h4>Nafiz Anam</h4>
+                                <h4>Shafayet</h4>
                                 <p>
                                     Some quick example text to build on the card
                                     title and make up the bulk of the card's

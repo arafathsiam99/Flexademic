@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from "react";
-import "./Teachers.css";
-function Teachers() {
+import React, { useEffect, useState } from 'react';
 
-  const [teachers, setTeachers] = useState([]);
+const Students = () => {
+    const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/teachers')
+    fetch('http://localhost:5000/students')
     .then((response) => response.json())
-    .then((response) => setTeachers(response))
+    .then((response) => setStudents(response))
   }, [])
 
-
-  return (
-    <div>
+    return (
+        <div>
       <div className="container">
         <div class="row row-cols-1 row-cols-md-3 g-4 my-3">
           {
-            teachers.map((teacher) =>
+            students.map((student) =>
             <div class="col shadow py-3">
             <div class="card h-100 border-0">
               <img
@@ -26,13 +24,13 @@ function Teachers() {
                   borderRadius: " 50%",
                   margin: "10px auto",
                 }}
-                src={`data:image/png;base64, ${teacher.image}`}
+                src={`data:image/png;base64, ${student.image}`}
                 class="card-img-top rounded-circle"
                 alt="#"
               />
               <div class="card-body">
-                <h5 class="card-title">{teacher.name}</h5>
-                <h5 class="card-title">{teacher.email}</h5>
+                <h5 class="card-title">{student.name}</h5>
+                <h5 class="card-title">{student.email}</h5>
                 
               </div>
               <div className="  mx-auto">
@@ -60,7 +58,7 @@ function Teachers() {
         </div>
       </div>
     </div>
-  );
-}
+    );
+};
 
-export default Teachers;
+export default Students;
