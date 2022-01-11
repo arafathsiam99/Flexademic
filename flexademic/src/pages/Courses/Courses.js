@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Courses = () => {
@@ -17,22 +17,37 @@ const Courses = () => {
 
     return (
         <Container>
-            <Row>
+            <Row className="my-5">
 
-                <h3> number of courses:  {courses.length} </h3>
                {
                    courses.map(c =>  
                    
-                   <Col md={4}
+                   <Col md={4} className="my-3"
                     key={c._id}
                    
                    >
-                    <img className="img-fluid" src={`data:image/png;base64, ${c.image}`} alt="" />
-                    <h3> {c.title}</h3>
-                    <p> {c.description} </p>
-                    <p> {c.fees} </p>
-                    <p> {c.duration} </p>
-                    <Link to={`/course-enroll/${c._id}`}><button>Enroll</button></Link>
+
+                    <Card>
+                        <Card.Img
+                            variant="top"
+                            style={{'height': '250px'}}
+                            src={`data:image/png;base64, ${c.image}`}
+                        />
+                        <Card.Body>
+                            <Card.Title className="custom-text">
+                            <h3> {c.title}</h3>
+                            </Card.Title>
+                            <Card.Text>
+                                <p> {c.description} </p>
+                                <p> {c.fees} </p>
+                                <p> {c.duration} </p>
+                            </Card.Text>
+                        </Card.Body>
+                        <Card.Footer>
+                        <Link to={`/course-enroll/${c._id}`}><button class="btn btn-primary">Enroll</button></Link>
+
+                        </Card.Footer>
+                    </Card>
                 </Col> )
                }
             </Row>

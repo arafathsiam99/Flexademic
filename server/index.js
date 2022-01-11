@@ -45,9 +45,7 @@ async function run() {
                 name, email, password, userType, 
                 image: imageBuffer
             }
-            console.log("files:", req.files);
             const result = await usersCollection.insertOne(user);
-            console.log(result);
             res.json(result);
         });
 
@@ -64,7 +62,6 @@ async function run() {
             console.log(email);
             const query = { email: email };
             const user = await usersCollection.findOne(query);
-            console.log(user);
             res.send(user);
         });
 
@@ -73,7 +70,6 @@ async function run() {
             const cursor = usersCollection.find({});
             const users = await cursor.toArray();
             const students = users.filter(user => user.userType === 'student')
-            console.log(students);
             res.json(students);
         });
         // get all teachers
@@ -81,7 +77,6 @@ async function run() {
             const cursor = usersCollection.find({});
             const users = await cursor.toArray();
             const teachers = users.filter(user => user.userType === 'teacher')
-            console.log(teachers);
             res.json(teachers);
         });
 
@@ -127,7 +122,6 @@ async function run() {
             const cursor = courseCollection.find({});
             const courses = await cursor.toArray();
             const myCourses = courses.filter(c => c.creatorEmail === email)
-            console.log(myCourses.length);
             res.json(myCourses);
         });
 
@@ -152,7 +146,6 @@ async function run() {
                 courseId, content1, content2, content3
             }
             const result = await courseContentCollection.insertOne(courseContent);
-            console.log(result);
             res.json(result);
         });
 
@@ -162,7 +155,6 @@ async function run() {
             console.log(courseId);
             const query = { courseId: courseId };
             const courseContent = await courseContentCollection.findOne(query);
-            console.log(courseContent);
             res.send(courseContent);
         });
 
@@ -170,7 +162,6 @@ async function run() {
         app.post('/course-enroll', async (req, res) => {
             const courseEnroll = req.body;
             const result = await courseEnrollCollection.insertOne(courseEnroll);
-            console.log(result);
             res.json(result);
         });
 
@@ -187,7 +178,6 @@ async function run() {
             const cursor = courseEnrollCollection.find({});
             const enrollCourses = await cursor.toArray();
             const myEnrolledCourses = enrollCourses.filter(c => c.email === email)
-            console.log(myEnrolledCourses.length);
             res.json(myEnrolledCourses);
         });
 
@@ -196,12 +186,11 @@ async function run() {
         app.post('/add/news-events', async (req, res) => {
             const newsEvent = req.body;
             const result = await newsEventCollection.insertOne(newsEvent);
-            console.log(result);
             res.json(result);
         });
 
         // get all news events
-        app.get('/new-events', async (req, res) => {
+        app.get('/news-events', async (req, res) => {
             const cursor = newsEventCollection.find({});
             const newsEvents = await cursor.toArray();
             res.json(newsEvents);
