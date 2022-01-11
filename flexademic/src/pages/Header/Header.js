@@ -51,14 +51,14 @@ const Header = () => {
                   <NavDropdown className="menu-item" title="Dashboard" id="basic-nav-dropdown">
                     <NavDropdown.Item><Link className="menu-item" to="/add-course">Add Course</Link>  </NavDropdown.Item>
                     <NavDropdown.Item><Link className="menu-item" to="/all-courses">All Courses</Link>  </NavDropdown.Item>
-                    <NavDropdown.Item><Link className="menu-item" to="/my-course">My Courses</Link>  </NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/my-courses">My Courses</Link>  </NavDropdown.Item>
                     <NavDropdown.Item><Link className="menu-item" to="/all-enrolled-course">All Enrolled Courses</Link>  </NavDropdown.Item>
                   </NavDropdown>
                 }
                 { userInfo.userType==='Teacher' &&
                   <NavDropdown className="menu-item" title="Dashboard" id="basic-nav-dropdown">
                     <NavDropdown.Item><Link className="menu-item" to="/add-course">Add Course</Link></NavDropdown.Item>
-                    <NavDropdown.Item><Link className="menu-item" to="/my-course">My Courses</Link></NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/my-courses">My Courses</Link></NavDropdown.Item>
                   </NavDropdown>
                 }
                 { userInfo.userType==='Student' &&

@@ -1,39 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const AllCourses = () => {
+const Courses = () => {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:5000/all-courses`)
         .then(res => res.json())
             .then(data => {
+              
                 setCourses(data);
               console.log(data);
             })
       }, [])
-
-
-      // DELETE  order
-     const handleDeleteCourse = id => {
-        const proceed = window.confirm('Are you sure, you want to delete?');
-        if (proceed) {
-            const url = `http://localhost:5000/course/${id}`;
-
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        alert('deleted successfully');
-                        const remainingCourses = courses.filter(orders => orders._id !== id);
-                        setCourses(remainingCourses);
-                    }
-                });
-        }
-    }
-
 
     return (
         <Container>
@@ -52,7 +32,7 @@ const AllCourses = () => {
                     <p> {c.description} </p>
                     <p> {c.fees} </p>
                     <p> {c.duration} </p>
-                    <button className="btn btn-danger" onClick={() => handleDeleteCourse(c._id)}>delete</button>
+                    <Link to="/"><button>Enroll</button></Link>
                 </Col> )
                }
             </Row>
@@ -60,4 +40,4 @@ const AllCourses = () => {
     );
 };
 
-export default AllCourses;
+export default Courses;
