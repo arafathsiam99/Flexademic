@@ -34,7 +34,6 @@ const MyCourses = () => {
                     <p> {c.duration} </p>
                     <Link to={`/add-course-content/${c._id}`}><button>Add Course Content</button></Link>
                     <Link to={`/get-course-content/${c._id}`}><button>view Course Content</button></Link>
-
                 </Col> )
                }
             </Row>
