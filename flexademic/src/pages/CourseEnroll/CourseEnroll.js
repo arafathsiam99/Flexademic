@@ -13,11 +13,14 @@ const CourseEnroll = () => {
     const addressRef = useRef();
     const mobileRef = useRef();
 
-
+    console.log(courseDetails);
     useEffect(() => {
         fetch(`http://localhost:5000/course/${courseId}`)
         .then(response => response.json())
-        .then(data => setCourseDetails(data))
+        .then(data => {
+            
+            console.log(data);
+            setCourseDetails(data)})
     }, [courseId]);
 
 
@@ -33,9 +36,14 @@ const CourseEnroll = () => {
         formData.append('courseId', courseId);
         formData.append('address', address);
         formData.append('mobile', mobile);
-        formData.append('courseDetails', courseDetails);
+        formData.append('courseTitle', courseDetails.title);
+        formData.append('courseDescription', courseDetails.description);
+        formData.append('courseFee', courseDetails.fees);
+        formData.append('courseDuration', courseDetails.duration);
+        formData.append('courseImage', courseDetails.image);
+
         // console.log(formData);
-        fetch('http://localhost:5000//course-enroll', {
+        fetch('http://localhost:5000/course-enroll', {
           method: 'POST',
           body: formData
         })
@@ -58,6 +66,12 @@ const CourseEnroll = () => {
             <Row className="d-flex justify-content-center align-items-center my-5">
                 <div className="col-md-6">
 
+                    <h4>Course Information</h4>
+                    <img className="img-fluid" src={`data:image/png;base64, ${courseDetails.image}`} alt="" />
+                    <div>
+                        <h2>{courseDetails.title}</h2>
+                        <p>{courseDetails.description}</p>
+                    </div>
                 </div>
                 <div className="col-md-6">
                     <h2 className="text-center mt-3">Enroll course</h2>

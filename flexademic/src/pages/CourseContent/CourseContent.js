@@ -14,6 +14,7 @@ const CourseContent = () => {
         
         })
     }, [courseId])
+    
     return (
         <Container>
             <Row>

@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Carousel } from "react-bootstrap";
 import "./Home.css";
 
 const Home = () => {
+
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/all-courses`)
+        .then(res => res.json())
+            .then(data => {
+              
+                setCourses(data);
+              console.log(data);
+            })
+      }, [])
+
+
     return (
         <section className="home">
             <section className="slider">
@@ -36,30 +50,27 @@ const Home = () => {
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                             <div className="slider-content num1">
-                                <h1>Welcome to Our University</h1>
+                                <h1>Welcome to FlexaDemic</h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit.
+                                    We Love Programming... 
                                 </p>
                                 <button className="btn">Read More</button>
                             </div>
                         </div>
                         <div className="carousel-item">
                             <div className="slider-content num2">
-                                <h1>Welcome to Our University</h1>
+                                <h1>Welcome to FlexaDemic</h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit.
+                                    We Love Web Development
                                 </p>
                                 <button className="btn">Read More</button>
                             </div>
                         </div>
                         <div className="carousel-item">
                             <div className="slider-content num3">
-                                <h1>Welcome to Our University</h1>
+                                <h1>Welcome to FlexaDemic</h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit.
+                                    We Love Software Development
                                 </p>
                                 <button className="btn">Read More</button>
                             </div>
@@ -95,63 +106,31 @@ const Home = () => {
             {/* OUR COURSE */}
             <h1 className="text-center pt-5">OUR COURSE</h1>
             <div className="row text-center py-5">
-                <div className="col-md-4">
-                    <Card>
-                        <Card.Img
-                            variant="top"
-                            src="//i.ibb.co/ZMFDcpg/Side-view-of-a-female-Asian-IT-engineer-explaining-network-connections-in-a-server-to-a-novice-Afric.jpg"
-                        />
-                        <Card.Body>
-                            <Card.Title className="custom-text">
-                                REAL ESTATE LAW
-                            </Card.Title>
-                            <Card.Text>
-                                If you want to build a successful business
-                                online, watch the promo video to see why 13,000+
-                                students are using this online entrepreneurship
-                                course to learn.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className="col-md-4">
-                    <Card>
-                        <Card.Img
-                            variant="top"
-                            src="//i.ibb.co/QkNsGkm/Man-using-calculator.jpg"
-                        />
-                        <Card.Body>
-                            <Card.Title className="custom-text">
-                                THE SECRETS OF ECONOMIC
-                            </Card.Title>
-                            <Card.Text>
-                                Personal time management skills are essential
-                                for professional & personal success in any area
-                                of life. Those able to successfully implement
-                                time management strategies
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className="col-md-4">
-                    <Card>
-                        <Card.Img
-                            variant="top"
-                            src="//i.ibb.co/jMtBR3h/photo-1509021436665-8f07dbf5bf1d.jpg"
-                        />
-                        <Card.Body>
-                            <Card.Title className="custom-text">
-                                NETWORKING MANAGEMENT
-                            </Card.Title>
-                            <Card.Text>
-                                Welcome to Logo Design fundamentals of building
-                                a great brand Logo. Our course teacher Lauren,
-                                walks you through his process of logo design.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </div>
+                {
 
+                    courses.slice(0,3).map(course =>
+                        <div className="col-md-4" key={course._id}>
+                            <Card>
+                                <Card.Img
+                                    variant="top"
+                                    src={`data:image/png;base64, ${course.image}`}
+                                />
+                                <Card.Body>
+                                    <Card.Title className="custom-text">
+                                    {course.title}
+                                    </Card.Title>
+                                    <Card.Text>
+                                        {course.description}
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    
+                    
+                    )
+                }
+                
+            </div>
                 {/* OUR GALLERY */}
                 <h1>OUR GALLERY</h1>
                 <div className="gallery pt-5">
@@ -370,7 +349,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
 
             {/* Testimonials Section */}
             <div className="container">
