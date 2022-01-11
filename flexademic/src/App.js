@@ -11,6 +11,10 @@ import AddCourse from "./pages/AddCourse/AddCourse";
 import Event from "./pages/Event/Event";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import AllCourses from "./pages/AllCourses/AllCourses";
+import Courses from "./pages/Courses/Courses";
+import MyCourses from "./pages/MyCourses/MyCourses";
+import AddCourseContent from "./pages/AddCourseContent/AddCourseContent";
+import CourseContent from "./pages/CourseContent/CourseContent";
 
 function App() {
   return (
@@ -23,6 +27,10 @@ function App() {
         <Route exact path="/home">
           <Home />
         </Route>
+        
+        <Route exact path="/courses">
+          <Courses />
+        </Route>
         <Route exact path="/login">
           <Login />
         </Route>
@@ -34,6 +42,15 @@ function App() {
         </Route>
         <Route path="/all-courses">
           <AllCourses />
+        </Route>
+        <Route path="/my-courses">
+          <MyCourses />
+        </Route>
+        <Route path="/add-course-content/:courseId">
+          <AddCourseContent />
+        </Route>
+        <Route path="/get-course-content/:courseId">
+          <CourseContent />
         </Route>
         <Route path="/event">
         <Event></Event>
