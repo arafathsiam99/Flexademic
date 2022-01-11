@@ -19,6 +19,7 @@ import CourseEnroll from "./pages/CourseEnroll/CourseEnroll";
 import Teachers from "./pages/Teachers/Teachers";
 import MyEnrolledCourses from "./pages/Courses/MyEnrolledCourses";
 import Students from "./pages/Students/Students";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
@@ -74,6 +75,9 @@ function App() {
         </Route>
         <Route path="/students" >
           <Students />
+        </Route>
+        <Route path="/contact">
+          <Contact />
         </Route>
       </Switch>
       <Footer></Footer>

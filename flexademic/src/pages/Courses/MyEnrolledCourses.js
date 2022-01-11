@@ -21,18 +21,19 @@ const MyEnrolledCourses = () => {
       console.log(myEnrolledCourses);
     return (
         <Container>
-            <Row>
+            <Row className="my-5">
             <h3>Number Of Enrolled Courses: {myEnrolledCourses.length}</h3>
             {
                 myEnrolledCourses.map(c =>  
                    
                    <Col md={4}
                         key={c._id}
+                        className="my-3"
                     >
                         <img className="img-fluid" src={`data:image/png;base64, ${c.courseImage}`} alt="" />
                         <h3> {c.courseTitle}</h3>
                         <p> {c.courseDescription}</p>
-                        <Link to={`/get-course-content/${c.courseId}`}><button>view Course Content</button></Link>
+                        <Link to={`/get-course-content/${c.courseId}`}><button className="btn btn-primary">view Course Content</button></Link>
                     </Col> )
                }
             </Row>
