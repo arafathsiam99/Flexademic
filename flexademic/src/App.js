@@ -10,6 +10,7 @@ import Header from "./pages/Header/Header";
 import AddCourse from "./pages/AddCourse/AddCourse";
 import Event from "./pages/Event/Event";
 import AboutUs from "./pages/AboutUs/AboutUs";
+import AllCourses from "./pages/AllCourses/AllCourses";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route path="/add-course">
           <AddCourse></AddCourse>
+        </Route>
+        <Route path="/all-courses">
+          <AllCourses />
         </Route>
         <Route path="/event">
         <Event></Event>

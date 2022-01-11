@@ -101,9 +101,7 @@ async function run() {
                 creatorName,creatorEmail, title, description, fees, duration,
                 image: imageBuffer
             }
-            console.log("files:", req.files);
             const result = await courseCollection.insertOne(course);
-            console.log(result);
             res.json(result);
         });
 
