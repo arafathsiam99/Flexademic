@@ -11,16 +11,17 @@ const MyCourses = () => {
     const [myCourses, setMyCourses] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/course/${email}`)
+        fetch(`http://localhost:5000/courses/${email}`)
         .then(res => res.json())
             .then(data => {
                 console.log(data.length);
                 setMyCourses(data);
             })
       }, [email])
+
     return (
         <Container>
-            <Row>
+            <Row className="my-5">
             {
                    myCourses.map(c =>  
                    
@@ -32,8 +33,10 @@ const MyCourses = () => {
                     <p> {c.description} </p>
                     <p> {c.fees} </p>
                     <p> {c.duration} </p>
-                    <Link to={`/add-course-content/${c._id}`}><button>Add Course Content</button></Link>
-                    <Link to={`/get-course-content/${c._id}`}><button>view Course Content</button></Link>
+                    <div className="d-flex justify-content-around">
+                        <Link to={`/add-course-content/${c._id}`}><button className="btn btn-primary">Add Course Content</button></Link>
+                        <Link to={`/get-course-content/${c._id}`}><button className="btn btn-dark">view Course Content</button></Link>
+                    </div>
                 </Col> )
                }
             </Row>

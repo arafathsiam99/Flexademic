@@ -43,11 +43,11 @@ const AllCourses = () => {
                {
                    courses.map(c =>  
                    
-                   <Col md={4}
+                   <Col md={4} className="my-3"
                     key={c._id}
                    
                    >
-                    <img className="img-fluid" src={`data:image/png;base64, ${c.image}`} alt="" />
+                    <img style={{"height": "220px"}} className="img-fluid" src={`data:image/png;base64, ${c.image}`} alt="" />
                     <h3> {c.title}</h3>
                     <p> {c.description} </p>
                     <p> {c.fees} </p>
