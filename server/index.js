@@ -113,16 +113,16 @@ async function run() {
         });
 
         // DELETE API for course delete
-        app.delete('/course/:id', async (req, res) => {
+        app.delete('/course-delete/:id', async (req, res) => {
             const id = req.params.id;
-            console.log(id);
+            console.log("course delete api: ", id);
             const query = { _id: ObjectId(id) };
             const result = await courseCollection.deleteOne(query);
             res.json(result);
         })
 
         // get all courses
-        app.get('/course/:email', async (req, res) => {
+        app.get('/courses/:email', async (req, res) => {
             const email = req.params.email;
             const cursor = courseCollection.find({});
             const courses = await cursor.toArray();
@@ -133,11 +133,12 @@ async function run() {
 
         // get single course
         app.get('/course/:id', async (req, res) => {
+            console.log("course get request");
             const id = req.params.id;
-            console.log(req);
+            console.log("id: ", id);
             const query = { _id: ObjectId(id) };
             const course = await courseCollection.findOne(query);
-            res.send(course);
+            res.json(course);
         });
 
         // create/add course content
