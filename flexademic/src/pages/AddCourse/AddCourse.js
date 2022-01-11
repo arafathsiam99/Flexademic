@@ -1,84 +1,128 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import useFirebase from "../../hooks/useFirebase";
 import "./AddCourse.css";
+
+
 function AddCourse() {
+  // getting user from useAuth
+  const { user } = useFirebase();
+  const [userInfo, setUserInfo] = useState({});
+  const email = user.email;
+
+  useEffect(() => {
+      fetch(`http://localhost:5000/user/${email}`)
+      .then(res => res.json())
+          .then(data => {
+            
+            setUserInfo(data);
+            console.log(data);
+          })
+    }, [email])
+
+
+  const [image, setImage] = useState(null);
+
+
   const titleRef = useRef();
   const feesRef = useRef();
   const durationRef = useRef();
-  const imageUrlRef = useRef();
   const descriptionRef = useRef();
+
+  // handle add course 
   const handleAddCourse = (e) => {
     e.preventDefault();
+    const creatorName = userInfo.name;
+    const creatorEmail = user.email;
     const title = titleRef.current.value;
     titleRef.current.value = "";
+    const description = descriptionRef.current.value;
+    descriptionRef.current.value = "";
     const fees = feesRef.current.value;
     feesRef.current.value = "";
     const duration = durationRef.current.value;
     durationRef.current.value = "";
-    const image = imageUrlRef.current.value;
-    imageUrlRef.current.value = "";
-    const description = descriptionRef.current.value;
-    descriptionRef.current.value = "";
-    const newData = { title, fees, duration, image, description };
 
+    const formData = new FormData();
+
+    formData.append('creatorName', creatorName);
+    formData.append('creatorEmail', creatorEmail);
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('fees', fees);
+    formData.append('duration', duration);
+    formData.append('image', image);
+
+    fetch('http://localhost:5000/add-course', {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+      .then(res=> {
+        if (res.insertedId) {
+          alert('New course added successfully');
+      }
+      })
+      .catch(err => {
+        console.log("error:", err);
+      })
   };
+
+
   return (
     <div>
       <div className="container d-flex justify-content-center flex-row">
         <div className="row w-50 add_course_style">
           <h1 className="text-center">Add A New Course</h1>
           <form action="" className="" onSubmit={handleAddCourse}>
-            <div class="form-floating mb-3">
+            <div className="form-floating mb-3">
               <input
                 type="text"
-                class="form-control"
-                id="floatingInput"
+                className="form-control"
                 placeholder="name@example.com"
                 ref={titleRef}
               />
-              <label for="floatingInput">Title</label>
+              <label >Title</label>
             </div>
-            <div class="form-floating">
-              <input
-                type="text"
-                class="form-control"
-                id="floatingPassword"
-                placeholder="Password"
-                ref={feesRef}
-              />
-              <label for="floatingPassword">Fees</label>
-            </div>
-            <div class="form-floating">
-              <input
-                type="text"
-                class="form-control"
-                id="floatingPassword"
-                placeholder="Password"
-                ref={durationRef}
-              />
-              <label for="floatingPassword">Duration</label>
-            </div>
-            <div class="form-floating">
-              <input
-                type="text"
-                class="form-control"
-                id="floatingPassword"
-                placeholder="Password"
-                ref={imageUrlRef}
-              />
-              <label for="floatingPassword">Image Url</label>
-            </div>
-            <div>
-              <div class="form-floating">
+            <div className="form-floating">
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   ref={descriptionRef}
                   placeholder="Leave a comment here"
-                  id="floatingTextarea2"
                   style={{ height: "100px" }}
                 ></textarea>
-                <label for="floatingTextarea2">Course Description</label>
+                <label>Course Description</label>
               </div>
-              <button className="btn btn-primary w-100">Submit</button>
+            <div className="form-floating">
+              <input
+                type="number"
+                className="form-control"
+                placeholder="Course Fee"
+                ref={feesRef}
+              />
+              <label>Fees</label>
+            </div>
+            <div className="form-floating">
+              <input
+                type="number"
+                className="form-control"
+                placeholder="Course Duration"
+                ref={durationRef}
+              />
+              <label>Duration</label>
+            </div>
+            <div className="form-floating">
+            <input
+                  type="file"
+                  className="form-control"
+                  placeholder="image" 
+                  accept="image/*"
+                  required
+                  onChange={e => setImage(e.target.files[0])}
+                />
+            </div>
+            <div className="mt-3">
+              
+              <button className="btn btn-primary w-100" type="submit">Submit</button>
             </div>
           </form>
         </div>

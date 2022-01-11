@@ -50,22 +50,20 @@ const Header = () => {
                 { userInfo.userType==='admin' &&
                   <NavDropdown className="menu-item" title="Dashboard" id="basic-nav-dropdown">
                     <NavDropdown.Item><Link className="menu-item" to="/add-course">Add Course</Link>  </NavDropdown.Item>
-                    <NavDropdown.Item><Link className="menu-item" to="/add-course">All Courses</Link>  </NavDropdown.Item>
-                    <NavDropdown.Item><Link className="menu-item" to="/add-course">My Courses</Link>  </NavDropdown.Item>
-                    <NavDropdown.Item><Link className="menu-item" to="/all-course">All Enrolled Courses</Link>  </NavDropdown.Item>
-
+                    <NavDropdown.Item><Link className="menu-item" to="/all-courses">All Courses</Link>  </NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/my-course">My Courses</Link>  </NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/all-enrolled-course">All Enrolled Courses</Link>  </NavDropdown.Item>
                   </NavDropdown>
                 }
                 { userInfo.userType==='Teacher' &&
                   <NavDropdown className="menu-item" title="Dashboard" id="basic-nav-dropdown">
-                    <NavDropdown.Item><Link className="menu-item" to="/add-course">Add Course</Link>  </NavDropdown.Item>
-                    <NavDropdown.Item><Link className="menu-item" to="/add-course">My Courses</Link>  </NavDropdown.Item>
-
+                    <NavDropdown.Item><Link className="menu-item" to="/add-course">Add Course</Link></NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/my-course">My Courses</Link></NavDropdown.Item>
                   </NavDropdown>
                 }
                 { userInfo.userType==='Student' &&
                   <NavDropdown className="menu-item" title="Dashboard" id="basic-nav-dropdown">
-                    <NavDropdown.Item><Link className="menu-item" to="/add-course">My Courses</Link>  </NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/my-enrolled-course">My Courses</Link></NavDropdown.Item>
 
                   </NavDropdown>
                 }

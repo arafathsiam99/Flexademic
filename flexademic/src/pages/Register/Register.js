@@ -31,7 +31,7 @@ const Register = () => {
     formData.append('password', password);
     formData.append('image', image);
     formData.append('userType', userType);
-
+    // console.log(formData);
     fetch('http://localhost:5000/users', {
       method: 'POST',
       body: formData
@@ -60,49 +60,45 @@ const Register = () => {
           </div>
           <div className="col-md-6">
             <form action="" onSubmit={handleRegistration}>
-              <div class="form-floating mb-3">
+              <div className="form-floating mb-3">
                 <input
                   type="text"
-                  class="form-control"
-                  id="floatingInput"
+                  className="form-control"
                   placeholder="Full Name"
                   ref={nameRef} required
                 />
-                <label for="floatingInput">Name</label>
+                <label >Name</label>
               </div>
-              <div class="form-floating mb-3">
+              <div className="form-floating mb-3">
                 <input
                   type="email"
-                  class="form-control"
-                  id="floatingInput"
+                  className="form-control"
                   placeholder="name@example.com"
                   ref={emailRef} required
                 />
-                <label for="floatingInput">Email address</label>
+                <label >Email address</label>
               </div>
-              <div class="form-floating">
+              <div className="form-floating">
                 <input
                   type="password"
-                  class="form-control"
-                  id="floatingPassword"
+                  className="form-control"
                   placeholder="Password"
                   ref={passwordRef} required
                 />
-                <label for="floatingPassword">Password</label>
+                <label >Password</label>
               </div>
-              <div class="form-floating mb-3">
+              <div className="form-floating mb-3">
                 <input
                   type="file"
-                  class="form-control"
-                  id="floatingInput"
+                  className="form-control"
                   placeholder="image" 
                   accept="image/*"
-                  required
+                  // required
                   onChange={e => setImage(e.target.files[0])}
                 />
               </div>
-              <div class="form-floating mb-3">
-                <select name="" id="" class="form-control" required 
+              <div className="form-floating mb-3">
+                <select name="" id="" className="form-control" required 
                   ref={userTypeRef}
                 >
                   <option value="" disabled>Select User Type</option>
