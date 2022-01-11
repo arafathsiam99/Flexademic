@@ -1,0 +1,38 @@
+[
+  {
+    "title": "The Complete Node.js Developer Course (3rd Edition)",
+    "description": "Have you tried to learn Node before? You start a new course, and the instructor has you installing a bunch of libraries before you even know what Node is or how it works. You eventually get stuck and reach out to the instructor, but you get no reply. You then close the course and never open it again",
+    "fees": "119.99",
+    "duration": "6"
+  },
+  {
+    "title": "React - The Complete Guide (incl Hooks, React Router, Redux)",
+    "description": "This course is the most up-to-date, comprehensive and bestselling React course on Udemy! It was completely updated and re-recorded from the ground up - it teaches the very latest version of React with all the core, modern features you need to know!",
+    "fees": "84.99",
+    "duration": "4"
+  },
+  {
+    "title": "The Complete JavaScript Course 2022: From Zero to Expert!",
+    "description": "You will learn modern JavaScript from the very beginning, step-by-step. I will guide you through practical and fun code examples, important theory about how JavaScript works behind the scenes, and beautiful and complete projects.You will also learn how to think like a developer, how to plan application features, how to architect your code, how to debug code, and a lot of other real-world skills that you will need on your developer job.",
+    "fees": "75",
+    "duration": "5"
+  },
+  {
+    "title": "The Complete Junior to Senior Web Developer Roadmap (2022)",
+    "description": "This is the tutorial you've been looking for to no longer be a junior developer, level up your skills, and earn a higher salary. This extensive course doesn’t just cover a small portion of the industry. This covers everything you need to know to go from junior developer, to learning the in-demand technical skills that some of the top developers in the industry know so you can become a senior developer this year.",
+    "fees": "105",
+    "duration": "3"
+  },
+  {
+    "title": "Python for Data Science and Machine Learning Bootcamp",
+    "description": "Are you ready to start your path to becoming a Data Scientist!  This comprehensive course will be your guide to learning how to use the power of Python to analyze data, create beautiful visualizations, and use powerful machine learning algorithms!",
+    "fees": "120",
+    "duration": "7"
+  },
+  {
+    "title": "Ultimate Web Designer & Web Developer Course",
+    "description": "his course by Brad Hussey is the go-to, most comprehensive, A to Z web design, web development and career-building course that will kickstart your progress by focusing on what you need to learn, and avoiding the unnecessary details.",
+    "fees": "120",
+    "duration": "7"
+  }
+]

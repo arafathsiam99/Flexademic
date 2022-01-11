@@ -16,6 +16,7 @@ import MyCourses from "./pages/MyCourses/MyCourses";
 import AddCourseContent from "./pages/AddCourseContent/AddCourseContent";
 import CourseContent from "./pages/CourseContent/CourseContent";
 import CourseEnroll from "./pages/CourseEnroll/CourseEnroll";
+import Teachers from "./pages/Teachers/Teachers";
 
 function App() {
   return (
@@ -62,6 +63,9 @@ function App() {
         </Route>
         <Route path="/about" >
           <AboutUs></AboutUs>
+        </Route>
+        <Route path="/teachers" >
+          <Teachers></Teachers>
         </Route>
       </Switch>
       <Footer></Footer>
