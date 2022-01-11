@@ -32,7 +32,7 @@ const Courses = () => {
                     <p> {c.description} </p>
                     <p> {c.fees} </p>
                     <p> {c.duration} </p>
-                    <Link to="/"><button>Enroll</button></Link>
+                    <Link to={`/course-enroll/${c._id}`}><button>Enroll</button></Link>
                 </Col> )
                }
             </Row>

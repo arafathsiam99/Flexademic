@@ -15,6 +15,7 @@ import Courses from "./pages/Courses/Courses";
 import MyCourses from "./pages/MyCourses/MyCourses";
 import AddCourseContent from "./pages/AddCourseContent/AddCourseContent";
 import CourseContent from "./pages/CourseContent/CourseContent";
+import CourseEnroll from "./pages/CourseEnroll/CourseEnroll";
 
 function App() {
   return (
@@ -52,10 +53,14 @@ function App() {
         <Route path="/get-course-content/:courseId">
           <CourseContent />
         </Route>
+
+        <Route path="/course-enroll/:courseId">
+          <CourseEnroll />
+        </Route>
         <Route path="/event">
         <Event></Event>
         </Route>
-        <Route path="/aboutus" >
+        <Route path="/about" >
           <AboutUs></AboutUs>
         </Route>
       </Switch>
