@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import useFirebase from "../../hooks/useFirebase";
 import "./AddCourse.css";
 
@@ -6,9 +7,15 @@ import "./AddCourse.css";
 function AddCourse() {
   // getting user from useAuth
   const { user } = useFirebase();
+  // userInfo state to store user information
   const [userInfo, setUserInfo] = useState({});
   const email = user.email;
 
+  const location = useLocation();
+  const history = useHistory();
+  const redirectUrl = location.state?.from || '/my-courses';
+
+  // fetching user data
   useEffect(() => {
       fetch(`http://localhost:5000/user/${email}`)
       .then(res => res.json())
@@ -21,8 +28,6 @@ function AddCourse() {
 
 
   const [image, setImage] = useState(null);
-
-
   const titleRef = useRef();
   const feesRef = useRef();
   const durationRef = useRef();
@@ -60,6 +65,7 @@ function AddCourse() {
       .then(res=> {
         if (res.insertedId) {
           alert('New course added successfully');
+          history.push(redirectUrl);
       }
       })
       .catch(err => {
@@ -84,14 +90,14 @@ function AddCourse() {
               <label >Title</label>
             </div>
             <div className="form-floating">
-                <textarea
-                  className="form-control"
-                  ref={descriptionRef}
-                  placeholder="Leave a comment here"
-                  style={{ height: "100px" }}
-                ></textarea>
-                <label>Course Description</label>
-              </div>
+              <textarea
+                className="form-control"
+                ref={descriptionRef}
+                placeholder="Leave a comment here"
+                style={{ height: "100px" }}
+              ></textarea>
+              <label>Course Description</label>
+            </div>
             <div className="form-floating">
               <input
                 type="number"

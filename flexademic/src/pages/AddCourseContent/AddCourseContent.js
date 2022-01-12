@@ -4,11 +4,19 @@ import { useHistory, useLocation, useParams } from 'react-router';
 
 
 const AddCourseContent = () => {
+    // courseId 
     const {courseId} = useParams();
+
+    // receiving information from form
     const content1Ref = useRef();
     const content2Ref = useRef();
     const content3Ref = useRef();
 
+    const location = useLocation();
+    const history = useHistory();
+    const redirectUrl = location.state?.from || '/my-courses';
+
+    // handle course content
     const handleCourseContent = (e) => {
         e.preventDefault();
         const content1 = content1Ref.current.value;
@@ -29,9 +37,9 @@ const AddCourseContent = () => {
         })
           .then(response => response.json())
           .then(result=> {
-            console.log("success:", result);
             if (result.insertedId) {
                 alert('course content added successfully');
+                history.push(redirectUrl);
             }
           })
           .catch(err => {

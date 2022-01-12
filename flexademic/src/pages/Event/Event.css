@@ -7,7 +7,7 @@
 }
 .event_row {
   width: 80%;
-  border: 3px dashed violet;
+  border: 3px dashed rgba(1, 9, 109, 0.514);
   margin: 10px 0;
   padding: 10px;
 }

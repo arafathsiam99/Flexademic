@@ -4,6 +4,7 @@ function Teachers() {
 
   const [teachers, setTeachers] = useState([]);
 
+  // fetch all teachers data
   useEffect(() => {
     fetch('http://localhost:5000/teachers')
     .then((response) => response.json())

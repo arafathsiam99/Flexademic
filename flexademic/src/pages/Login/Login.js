@@ -8,11 +8,15 @@ import './Login.css'
 
 const Login = () => {
 
+  // login function from firebase
   const {login, error}=useFirebase()
+
   const history= useHistory()
   const location= useLocation()
   const emailRef=useRef()
   const passwordRef=useRef()
+
+  // handle login
   const handleLogin=(e)=>{
    e.preventDefault()
    const email=emailRef.current.value;

@@ -52,7 +52,9 @@ const Header = () => {
                     <NavDropdown.Item><Link className="menu-item" to="/add-course">Add Course</Link>  </NavDropdown.Item>
                     <NavDropdown.Item><Link className="menu-item" to="/all-courses">All Courses</Link>  </NavDropdown.Item>
                     <NavDropdown.Item><Link className="menu-item" to="/my-courses">My Courses</Link>  </NavDropdown.Item>
-                    <NavDropdown.Item><Link className="menu-item" to="/all-enrolled-course">All Enrolled Courses</Link>  </NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/all-enrolled-courses">All Enrolled Courses</Link>  </NavDropdown.Item>
+                    <NavDropdown.Item><Link className="menu-item" to="/add-events">Add Events</Link>  </NavDropdown.Item>
+
                   </NavDropdown>
                 }
                 { userInfo.userType==='Teacher' &&

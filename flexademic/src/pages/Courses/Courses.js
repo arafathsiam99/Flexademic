@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const Courses = () => {
     const [courses, setCourses] = useState([]);
 
+    // fetch courses
     useEffect(() => {
         fetch(`http://localhost:5000/all-courses`)
         .then(res => res.json())

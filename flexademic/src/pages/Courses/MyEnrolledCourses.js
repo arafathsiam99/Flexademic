@@ -6,9 +6,9 @@ import useFirebase from '../../hooks/useFirebase';
 const MyEnrolledCourses = () => {
     const {user} = useFirebase();
     const email = user.email;
-    console.log(email);
     const [myEnrolledCourses, setMyEnrolledCourses] = useState([]);
 
+    // fetch my-enrolled courses
     useEffect(() => {
         fetch(`http://localhost:5000/course-enrolled/${email}`)
         .then(res => res.json())
@@ -18,7 +18,6 @@ const MyEnrolledCourses = () => {
             })
       }, [email])
 
-      console.log(myEnrolledCourses);
     return (
         <Container>
             <Row className="my-5">

@@ -29,8 +29,6 @@ async function run() {
         const courseEnrollCollection = database.collection('courseEnroll');
         const newsEventCollection = database.collection('newsEvent');
 
-        
-
         // create/add new user 
         app.post('/users', async (req, res) => {
             const name = req.body.name;
@@ -116,7 +114,7 @@ async function run() {
             res.json(result);
         })
 
-        // get all courses
+        // get all my courses that created
         app.get('/courses/:email', async (req, res) => {
             const email = req.params.email;
             const cursor = courseCollection.find({});
@@ -165,7 +163,7 @@ async function run() {
             res.json(result);
         });
 
-         // get all enrolled courses
+         // get all enrolled courses 
          app.get('/all-enrolled-courses', async (req, res) => {
             const cursor = courseEnrollCollection.find({});
             const courses = await cursor.toArray();
@@ -182,7 +180,7 @@ async function run() {
         });
 
         
-        // enroll course by student
+        // add newsEvent
         app.post('/add/news-events', async (req, res) => {
             const newsEvent = req.body;
             const result = await newsEventCollection.insertOne(newsEvent);

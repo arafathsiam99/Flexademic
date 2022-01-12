@@ -4,6 +4,7 @@ function Event() {
 
   const [events, setEvents] = useState([]);
 
+  // fetch events
   useEffect(() => {
     fetch('http://localhost:5000/news-events')
     .then((response) => response.json())
