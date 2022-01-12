@@ -7,7 +7,7 @@ const AllCourses = () => {
 
     // fetching all courses data
     useEffect(() => {
-        fetch(`http://localhost:5000/all-courses`)
+        fetch(`https://intense-hamlet-45905.herokuapp.com/all-courses`)
         .then(res => res.json())
             .then(data => {
                 setCourses(data);
@@ -21,7 +21,7 @@ const AllCourses = () => {
     const handleDeleteCourse = id => {
     const proceed = window.confirm('Are you sure, you want to delete?');
     if (proceed) {
-        const url = `http://localhost:5000/course/${id}`;
+        const url = `https://intense-hamlet-45905.herokuapp.com/course/${id}`;
 
         fetch(url, {
             method: 'DELETE'

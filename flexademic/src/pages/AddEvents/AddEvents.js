@@ -24,7 +24,7 @@ const AddEvents = () => {
         formData.append('title', title);
         formData.append('description', description);
 
-        fetch('http://localhost:5000/add/news-events', {
+        fetch('https://intense-hamlet-45905.herokuapp.com/add/news-events', {
           method: 'POST',
           body: formData
         })

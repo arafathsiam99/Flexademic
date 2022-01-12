@@ -31,7 +31,7 @@ const AddCourseContent = () => {
         formData.append('content2', content2);
         formData.append('content3', content3);
 
-        fetch(`http://localhost:5000/course/${courseId}/content`, {
+        fetch(`https://intense-hamlet-45905.herokuapp.com/course/${courseId}/content`, {
           method: 'POST',
           body: formData
         })

@@ -6,7 +6,7 @@ function Event() {
 
   // fetch events
   useEffect(() => {
-    fetch('http://localhost:5000/news-events')
+    fetch('https://intense-hamlet-45905.herokuapp.com/news-events')
     .then((response) => response.json())
     .then((response) => setEvents(response))
   })

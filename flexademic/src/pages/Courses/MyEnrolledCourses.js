@@ -10,7 +10,7 @@ const MyEnrolledCourses = () => {
 
     // fetch my-enrolled courses
     useEffect(() => {
-        fetch(`http://localhost:5000/course-enrolled/${email}`)
+        fetch(`https://intense-hamlet-45905.herokuapp.com/course-enrolled/${email}`)
         .then(res => res.json())
             .then(data => {
                 console.log(data.length);

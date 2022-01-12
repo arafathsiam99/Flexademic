@@ -6,7 +6,7 @@ const AllEnrolledCourses = () => {
 
     // fetch all enrolled courses 
     useEffect(() => {
-        fetch('http://localhost:5000/all-enrolled-courses')
+        fetch('https://intense-hamlet-45905.herokuapp.com/all-enrolled-courses')
             .then(response => response.json())
             .then(res => setEnrolledCourses(res))
     }, [])

@@ -8,7 +8,7 @@ const CourseContent = () => {
 
     // get courses content
     useEffect(() => {
-        fetch(`http://localhost:5000/course/${courseId}/content`)
+        fetch(`https://intense-hamlet-45905.herokuapp.com/course/${courseId}/content`)
         .then(response => response.json())
         .then(data =>{ setCourseContent(data)
             console.log(courseContent.content1);
@@ -40,5 +40,3 @@ const CourseContent = () => {
 };
 
 export default CourseContent;
-
-{/* <iframe width="853" height="480" src="https://www.youtube.com/embed/SppbtlpPZu4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}

@@ -20,7 +20,7 @@ const CourseEnroll = () => {
     const mobileRef = useRef();
     //fetch course details
     useEffect(() => {
-        fetch(`http://localhost:5000/course/${courseId}`)
+        fetch(`https://intense-hamlet-45905.herokuapp.com/course/${courseId}`)
         .then(response => response.json())
         .then(data => {
             setCourseDetails(data)})
@@ -45,7 +45,7 @@ const CourseEnroll = () => {
         formData.append('courseDuration', courseDetails.duration);
         formData.append('courseImage', courseDetails.image);
         
-        fetch('http://localhost:5000/course-enroll', {
+        fetch('https://intense-hamlet-45905.herokuapp.com/course-enroll', {
           method: 'POST',
           body: formData
         })
