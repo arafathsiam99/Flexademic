@@ -13,7 +13,7 @@ const MyCourses = () => {
 
     // fetch my courses
     useEffect(() => {
-        fetch(`http://localhost:5000/courses/${email}`)
+        fetch(`https://intense-hamlet-45905.herokuapp.com/courses/${email}`)
         .then(res => res.json())
             .then(data => {
                 console.log(data.length);

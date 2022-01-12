@@ -12,7 +12,7 @@ const Header = () => {
   const email = user.email;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/user/${email}`)
+    fetch(`https://intense-hamlet-45905.herokuapp.com/user/${email}`)
     .then(res => res.json())
         .then(data => {
           

@@ -7,7 +7,7 @@ const Courses = () => {
 
     // fetch courses
     useEffect(() => {
-        fetch(`http://localhost:5000/all-courses`)
+        fetch(`https://intense-hamlet-45905.herokuapp.com/all-courses`)
         .then(res => res.json())
             .then(data => {
               

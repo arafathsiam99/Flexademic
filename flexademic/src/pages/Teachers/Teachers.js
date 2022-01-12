@@ -6,7 +6,7 @@ function Teachers() {
 
   // fetch all teachers data
   useEffect(() => {
-    fetch('http://localhost:5000/teachers')
+    fetch('https://intense-hamlet-45905.herokuapp.com/teachers')
     .then((response) => response.json())
     .then((response) => setTeachers(response))
   }, [])

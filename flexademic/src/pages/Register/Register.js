@@ -38,7 +38,7 @@ const Register = () => {
     formData.append('image', image);
     formData.append('userType', userType);
     
-    fetch('http://localhost:5000/users', {
+    fetch('https://intense-hamlet-45905.herokuapp.com/users', {
       method: 'POST',
       body: formData
     })

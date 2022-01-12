@@ -17,10 +17,9 @@ function AddCourse() {
 
   // fetching user data
   useEffect(() => {
-      fetch(`http://localhost:5000/user/${email}`)
+      fetch(`https://intense-hamlet-45905.herokuapp.com/user/${email}`)
       .then(res => res.json())
           .then(data => {
-            
             setUserInfo(data);
             console.log(data);
           })
@@ -57,7 +56,7 @@ function AddCourse() {
     formData.append('duration', duration);
     formData.append('image', image);
 
-    fetch('http://localhost:5000/add-course', {
+    fetch('https://intense-hamlet-45905.herokuapp.com/add-course', {
       method: 'POST',
       body: formData
     })

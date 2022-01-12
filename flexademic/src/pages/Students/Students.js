@@ -5,7 +5,7 @@ const Students = () => {
 
     // fetch all students data
   useEffect(() => {
-    fetch('http://localhost:5000/students')
+    fetch('https://intense-hamlet-45905.herokuapp.com/students')
     .then((response) => response.json())
     .then((response) => setStudents(response))
   }, [])
