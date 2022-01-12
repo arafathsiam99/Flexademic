@@ -22,7 +22,7 @@ export const myteachers = createAsyncThunk("myteachers", async () => {
 });
 export const mystudents = createAsyncThunk("mystudents", async () => {
   const response = await axios.get(
-    `https://intense-hamlet-45905.herokuapp.com/teachers`
+    `https://intense-hamlet-45905.herokuapp.com/students`
   );
   
   return response.data;
