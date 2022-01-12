@@ -1,9 +1,9 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyAC9eZj9qFo5d5Q4IoZEiM7mUhWAXKHsNc",
-    authDomain: "flexademic.firebaseapp.com",
-    projectId: "flexademic",
-    storageBucket: "flexademic.appspot.com",
-    messagingSenderId: "1011861250608",
-    appId: "1:1011861250608:web:7f0f145e68e514497603f5"
-  };
-  export default firebaseConfig;
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+};
+export default firebaseConfig;

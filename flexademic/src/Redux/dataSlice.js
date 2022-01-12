@@ -4,6 +4,7 @@ const initialState = {
   mycourses: [],
   myteachers:[],
   mystudents:[],
+  isload:true,
 };
 export const mycourses = createAsyncThunk("mycourses", async () => {
   const response = await axios.get(
@@ -48,14 +49,17 @@ export const counterSlice = createSlice({
     builder.addCase(mycourses.fulfilled, (state, action) => {
       // alert('action is full filled')
       state.mycourses = action.payload;
+      state.isload=false
     });
     builder.addCase(myteachers.fulfilled, (state, action) => {
       // alert('action is full filled')
       state.myteachers = action.payload;
+      state.isload=false
     });
     builder.addCase(mystudents.fulfilled, (state, action) => {
       // alert('action is full filled')
       state.mystudents = action.payload;
+      state.isload=false
     });
   },
 });
