@@ -102,13 +102,13 @@ const Register = () => {
                   className="form-control"
                   placeholder="image" 
                   accept="image/*"
-                  // required
+                  required
                   onChange={e => setImage(e.target.files[0])}
                 />
               </div>
               <div className="form-floating mb-3">
                 <select name="" id="" className="form-control" required 
-                  ref={userTypeRef}
+                  ref={userTypeRef} 
                 >
                   <option value="" disabled>Select User Type</option>
                   <option value="Student">Student</option>
