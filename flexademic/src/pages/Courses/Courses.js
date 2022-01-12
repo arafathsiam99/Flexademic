@@ -12,14 +12,6 @@ const Courses = () => {
     // fetch courses
     useEffect(() => {
         Dispatch(mycourses())
-        
-        // fetch(`https://intense-hamlet-45905.herokuapp.com/all-courses`)
-        // .then(res => res.json())
-        //     .then(data => {
-              
-        //         setCourses(data);
-        //       console.log(data);
-        //     })
       }, [])
 
     return (

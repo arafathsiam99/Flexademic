@@ -5,15 +5,27 @@ import { mystudents } from '../../Redux/dataSlice';
 const Students = () => {
     // const [students, setStudents] = useState([]);
     const students = useSelector(state=>state.data.mystudents);
+    const isload = useSelector((state) => state.data.isload);
  const Dispatch = useDispatch()
    
     // fetch all students data
   useEffect(() => {
     Dispatch(mystudents())
-    // fetch('https://intense-hamlet-45905.herokuapp.com/students')
-    // .then((response) => response.json())
-    // .then((response) => setStudents(response))
+    
   }, [])
+
+
+  if (isload) {
+    return (
+      <div className="d-flex align-items-center justify-content-center h-100 position-absolute w-100">
+        <div
+          class="spinner-border"
+          style={{ width: "4rem ", height: "4rem" }}
+          role="status"
+        ></div>
+      </div>
+    );
+  }
 
     return (
         <div>
