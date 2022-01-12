@@ -1,13 +1,28 @@
-import React from 'react'
-import { Redirect, Route } from 'react-router-dom'
-import useFirebase from '../hooks/useFirebase'
+import React, { useEffect } from "react";
+import { Redirect, Route } from "react-router-dom";
+import useFirebase from "../hooks/useFirebase";
 
-function PrivateRoute({children, ...rest}) {
-    const {user}=useFirebase();
-    console.log("user: " + user.email);
+function PrivateRoute({ children, ...rest }) {
+  const { user, isLoading } = useFirebase();
+  console.log("user: " + user.email, isLoading);
+  // useEffect(()=>{
+
+  //   },[])
+  if (isLoading) {
     return (
-        <div>
-            <Route
+      <div className="d-flex align-items-center justify-content-center h-100 position-absolute w-100">
+        <div
+          class="spinner-border"
+          style={{ width: "4rem ", height: "4rem" }}
+          role="status"
+        ></div>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <Route
         {...rest}
         render={({ location }) =>
           user.email ? (
@@ -22,8 +37,8 @@ function PrivateRoute({children, ...rest}) {
           )
         }
       />
-        </div>
-    )
+    </div>
+  );
 }
 
-export default PrivateRoute
+export default PrivateRoute;

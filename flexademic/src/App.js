@@ -59,9 +59,9 @@ function App() {
         <Route path="/get-course-content/:courseId">
           <CourseContent />
         </Route>
-        <Route path="/course-enroll/:courseId">
+        <PrivateRoute path="/course-enroll/:courseId">
           <CourseEnroll />
-        </Route>
+        </PrivateRoute>
         <Route path="/my-enrolled-course">
           <MyEnrolledCourses />
         </Route>

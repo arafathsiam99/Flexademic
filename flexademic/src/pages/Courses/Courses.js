@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { mycourses } from '../../Redux/dataSlice';
 
 const Courses = () => {
-    const [courses, setCourses] = useState([]);
+    // const [courses, setCourses] = useState([]);
+    const courses=useSelector(state=>state.data.mycourses)
+    const Dispatch=useDispatch()
 
     // fetch courses
     useEffect(() => {
-        fetch(`https://intense-hamlet-45905.herokuapp.com/all-courses`)
-        .then(res => res.json())
-            .then(data => {
+        Dispatch(mycourses())
+        
+        // fetch(`https://intense-hamlet-45905.herokuapp.com/all-courses`)
+        // .then(res => res.json())
+        //     .then(data => {
               
-                setCourses(data);
-              console.log(data);
-            })
+        //         setCourses(data);
+        //       console.log(data);
+        //     })
       }, [])
 
     return (

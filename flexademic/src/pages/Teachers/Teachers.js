@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { myteachers } from "../../Redux/dataSlice";
 import "./Teachers.css";
 function Teachers() {
-
-  const [teachers, setTeachers] = useState([]);
+ const teachers = useSelector(state=>state.data.myteachers);
+ const Dispatch = useDispatch()
+  // const [teachers, setTeachers] = useState([]);
 
   // fetch all teachers data
   useEffect(() => {
-    fetch('https://intense-hamlet-45905.herokuapp.com/teachers')
-    .then((response) => response.json())
-    .then((response) => setTeachers(response))
+    Dispatch(myteachers())
+    // fetch('https://intense-hamlet-45905.herokuapp.com/teachers')
+    // .then((response) => response.json())
+    // .then((response) => setTeachers(response))
   }, [])
 
 
