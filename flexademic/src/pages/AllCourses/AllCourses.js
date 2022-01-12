@@ -52,8 +52,8 @@ const AllCourses = () => {
                     <img style={{"height": "220px"}} className="img-fluid" src={`data:image/png;base64, ${c.image}`} alt="" />
                     <h3> {c.title}</h3>
                     <p> {c.description} </p>
-                    <p> {c.fees} </p>
-                    <p> {c.duration} </p>
+                    <p>$ {c.fees} </p>
+                    <p>Duration: {c.duration} Month</p>
                     <button className="btn btn-danger" onClick={() => handleDeleteCourse(c._id)}>delete</button>
                 </Col> )
                }

@@ -33,11 +33,11 @@ const MyCourses = () => {
                     <img className="img-fluid" src={`data:image/png;base64, ${c.image}`} alt="" />
                     <h3> {c.title}</h3>
                     <p> {c.description} </p>
-                    <p> {c.fees} </p>
-                    <p> {c.duration} </p>
+                    <p> $ {c.fees}  </p>
+                    <p> Duration: {c.duration} Month </p>
                     <div className="d-flex justify-content-around">
-                        <Link to={`/add-course-content/${c._id}`}><button className="btn btn-primary">Add Course Content</button></Link>
-                        <Link to={`/get-course-content/${c._id}`}><button className="btn btn-dark">view Course Content</button></Link>
+                        <Link to={`/add-course-content/${c._id}`}><button className="btn btn-primary">Add Content</button></Link>
+                        <Link to={`/get-course-content/${c._id}`}><button className="btn btn-dark">Course Content</button></Link>
                     </div>
                 </Col> )
                }
