@@ -5,11 +5,13 @@ import useFirebase from '../../hooks/useFirebase';
 
 const MyCourses = () => {
 
+    // user data
     const { user } = useFirebase();
     const email = user.email;
   
     const [myCourses, setMyCourses] = useState([]);
 
+    // fetch my courses
     useEffect(() => {
         fetch(`http://localhost:5000/courses/${email}`)
         .then(res => res.json())

@@ -6,6 +6,7 @@ const CourseContent = () => {
     const {courseId} = useParams();
     const [courseContent, setCourseContent] = useState([]);
 
+    // get courses content
     useEffect(() => {
         fetch(`http://localhost:5000/course/${courseId}/content`)
         .then(response => response.json())

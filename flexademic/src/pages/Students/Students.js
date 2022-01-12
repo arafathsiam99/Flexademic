@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Students = () => {
     const [students, setStudents] = useState([]);
 
+    // fetch all students data
   useEffect(() => {
     fetch('http://localhost:5000/students')
     .then((response) => response.json())

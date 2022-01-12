@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
 const AllCourses = () => {
+    // all courses state 
     const [courses, setCourses] = useState([]);
 
+    // fetching all courses data
     useEffect(() => {
         fetch(`http://localhost:5000/all-courses`)
         .then(res => res.json())
@@ -14,25 +16,25 @@ const AllCourses = () => {
       }, [])
 
 
-      // DELETE  order
-     const handleDeleteCourse = id => {
-        const proceed = window.confirm('Are you sure, you want to delete?');
-        if (proceed) {
-            const url = `http://localhost:5000/course/${id}`;
 
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        alert('deleted successfully');
-                        const remainingCourses = courses.filter(orders => orders._id !== id);
-                        setCourses(remainingCourses);
-                    }
-                });
-        }
-    }
+    // DELETE course
+    const handleDeleteCourse = id => {
+    const proceed = window.confirm('Are you sure, you want to delete?');
+    if (proceed) {
+        const url = `http://localhost:5000/course/${id}`;
+
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    alert('deleted successfully');
+                    const remainingCourses = courses.filter(orders => orders._id !== id);
+                    setCourses(remainingCourses);
+                }
+            });
+    }}
 
 
     return (

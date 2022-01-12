@@ -1,18 +1,24 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import useFirebase from "../../hooks/useFirebase";
 import img from "../../images/registration.svg";
 
 
 const Register = () => {
+  // register function from firebase
   const { registration } = useFirebase();
+  // get form data
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const [image, setImage] = useState(null);
   const userTypeRef = useRef();
 
+  const location = useLocation();
+  const history = useHistory();
+  const redirectUrl = location.state?.from || '/home';
 
+  // handle registration
   const handleRegistration = (e) => {
     e.preventDefault();
     const name = nameRef.current.value;
@@ -31,14 +37,17 @@ const Register = () => {
     formData.append('password', password);
     formData.append('image', image);
     formData.append('userType', userType);
-    // console.log(formData);
+    
     fetch('http://localhost:5000/users', {
       method: 'POST',
       body: formData
     })
       .then(response => response.json())
       .then(result=> {
-        console.log("success:", result);
+        if (result.insertedId) {
+          alert('Registration completed successfully');
+          history.push(redirectUrl);
+      }
       })
       .catch(err => {
         console.log("error:", err);

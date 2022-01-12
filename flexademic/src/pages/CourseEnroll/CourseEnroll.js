@@ -1,29 +1,32 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
 
 const CourseEnroll = () => {
 
+    // user data
     const {user} = useFirebase();
     const email = user.email;
+
     const {courseId} = useParams();
     const [courseDetails, setCourseDetails] = useState({});
 
+    const location = useLocation();
+    const history = useHistory();
+    const redirectUrl = location.state?.from || '/my-enrolled-course';
+    
     const addressRef = useRef();
     const mobileRef = useRef();
-
-    console.log(courseDetails);
+    //fetch course details
     useEffect(() => {
         fetch(`http://localhost:5000/course/${courseId}`)
         .then(response => response.json())
         .then(data => {
-            
-            console.log(data);
             setCourseDetails(data)})
     }, [courseId]);
 
-
+    // handle course enroll
     const handleCourseEnroll = (e) => {
         e.preventDefault();
         const address = addressRef.current.value;
@@ -41,8 +44,7 @@ const CourseEnroll = () => {
         formData.append('courseFee', courseDetails.fees);
         formData.append('courseDuration', courseDetails.duration);
         formData.append('courseImage', courseDetails.image);
-
-        // console.log(formData);
+        
         fetch('http://localhost:5000/course-enroll', {
           method: 'POST',
           body: formData
@@ -51,7 +53,8 @@ const CourseEnroll = () => {
           .then(result=> {
             console.log("success:", result);
             if (result.insertedId) {
-                alert('course content added successfully');
+                alert('course enrolled successfully');
+                history.push(redirectUrl);
             }
           })
           .catch(err => {
