@@ -45,7 +45,7 @@ const Courses = () => {
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>
-                        <Link to={`/course-enroll/${c._id}`}><button class="btn btn-primary">Enroll</button></Link>
+                        <Link to={`/course-enroll/${c._id}`}><button className="btn btn-primary">Enroll</button></Link>
 
                         </Card.Footer>
                     </Card>
