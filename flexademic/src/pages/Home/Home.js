@@ -123,7 +123,7 @@ const Home = () => {
               </Card.Body>
               <Card.Footer>
                 <Link to="/courses">
-                  <button className="btn btn-primary w-100">
+                  <button className="btn btn-dark w-100">
                     See All Courses
                   </button>
                 </Link>

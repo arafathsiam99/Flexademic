@@ -32,7 +32,7 @@ const MyEnrolledCourses = () => {
                         <img className="img-fluid" src={`data:image/png;base64, ${c.courseImage}`} alt="" />
                         <h3> {c.courseTitle}</h3>
                         <p> {c.courseDescription}</p>
-                        <Link to={`/get-course-content/${c.courseId}`}><button className="btn btn-primary">view Course Content</button></Link>
+                        <Link to={`/get-course-content/${c.courseId}`}><button className="btn btn-dark">Course Content</button></Link>
                     </Col> )
                }
             </Row>

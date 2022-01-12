@@ -38,8 +38,8 @@ const Courses = () => {
                             </Card.Title>
                             <Card.Text>
                                 <p> {c.description} </p>
-                                <p> {c.fees} </p>
-                                <p> {c.duration} </p>
+                                <p>$ {c.fees} </p>
+                                <p>Duration: {c.duration} Month</p>
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>
