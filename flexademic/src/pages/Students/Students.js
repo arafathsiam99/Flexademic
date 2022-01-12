@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { mystudents } from '../../Redux/dataSlice';
 
 const Students = () => {
-    const [students, setStudents] = useState([]);
-
+    // const [students, setStudents] = useState([]);
+    const students = useSelector(state=>state.data.mystudents);
+ const Dispatch = useDispatch()
+   
     // fetch all students data
   useEffect(() => {
-    fetch('https://intense-hamlet-45905.herokuapp.com/students')
-    .then((response) => response.json())
-    .then((response) => setStudents(response))
+    Dispatch(mystudents())
+    // fetch('https://intense-hamlet-45905.herokuapp.com/students')
+    // .then((response) => response.json())
+    // .then((response) => setStudents(response))
   }, [])
 
     return (

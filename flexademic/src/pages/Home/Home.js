@@ -137,7 +137,7 @@ const Home = () => {
                 
             </div>
                 {/* OUR GALLERY */}
-                <h1>OUR GALLERY</h1>
+                <h1 className="text-center">OUR GALLERY</h1>
                 <div className="gallery pt-5">
                     {/* first row  */}
                     <div className="row">
@@ -235,7 +235,7 @@ const Home = () => {
 
                 {/* faculty  */}
                 <div className="teachers p-5">
-                    <h1>FACULTY MEMBER</h1>
+                    <h1 className="text-center">FACULTY MEMBER</h1>
                     <div className="container pt-5">
                         <div className="row">
                             <div className="col-lg-4">
