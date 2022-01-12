@@ -84,7 +84,7 @@ function AddCourse() {
                 type="text"
                 className="form-control"
                 placeholder="name@example.com"
-                ref={titleRef}
+                ref={titleRef} required
               />
               <label >Title</label>
             </div>
@@ -93,7 +93,7 @@ function AddCourse() {
                 className="form-control"
                 ref={descriptionRef}
                 placeholder="Leave a comment here"
-                style={{ height: "100px" }}
+                style={{ height: "100px" }} required
               ></textarea>
               <label>Course Description</label>
             </div>
@@ -102,7 +102,7 @@ function AddCourse() {
                 type="number"
                 className="form-control"
                 placeholder="Course Fee"
-                ref={feesRef}
+                ref={feesRef} required
               />
               <label>Fees</label>
             </div>
@@ -111,7 +111,7 @@ function AddCourse() {
                 type="number"
                 className="form-control"
                 placeholder="Course Duration"
-                ref={durationRef}
+                ref={durationRef} required
               />
               <label>Duration</label>
             </div>

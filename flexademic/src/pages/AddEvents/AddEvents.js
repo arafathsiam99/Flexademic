@@ -62,7 +62,7 @@ const AddEvents = () => {
                             className="form-control"
                             ref={descriptionRef}
                             placeholder="Leave a comment here"
-                            style={{ height: "100px" }}
+                            style={{ height: "100px" }} required
                         ></textarea>
                         <label>Course Description</label>
                     </div>
