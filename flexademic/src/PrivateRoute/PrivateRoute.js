@@ -4,6 +4,7 @@ import useFirebase from '../hooks/useFirebase'
 
 function PrivateRoute({children, ...rest}) {
     const {user}=useFirebase();
+    console.log("user: " + user.email);
     return (
         <div>
             <Route

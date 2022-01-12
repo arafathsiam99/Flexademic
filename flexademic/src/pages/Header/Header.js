@@ -15,7 +15,6 @@ const Header = () => {
     fetch(`https://intense-hamlet-45905.herokuapp.com/user/${email}`)
     .then(res => res.json())
         .then(data => {
-          
           setUserInfo(data);
           console.log(data);
         })

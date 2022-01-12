@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Carousel } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Home.css";
 
@@ -8,7 +8,7 @@ const Home = () => {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/all-courses`)
+        fetch(`https://intense-hamlet-45905.herokuapp.com/all-courses`)
         .then(res => res.json())
             .then(data => {
               
@@ -250,13 +250,13 @@ const Home = () => {
                                             <div className="social">
                                                 <ul>
                                                     <li>
-                                                        <i class="fab fa-facebook"></i>
+                                                        <i className="fab fa-facebook"></i>
                                                     </li>
                                                     <li>
-                                                        <i class="fab fa-twitter"></i>
+                                                        <i className="fab fa-twitter"></i>
                                                     </li>
                                                     <li>
-                                                        <i class="fab fa-linkedin"></i>
+                                                        <i className="fab fa-linkedin"></i>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -285,13 +285,13 @@ const Home = () => {
                                             <div className="social">
                                                 <ul>
                                                     <li>
-                                                        <i class="fab fa-facebook"></i>
+                                                        <i className="fab fa-facebook"></i>
                                                     </li>
                                                     <li>
-                                                        <i class="fab fa-twitter"></i>
+                                                        <i className="fab fa-twitter"></i>
                                                     </li>
                                                     <li>
-                                                        <i class="fab fa-linkedin"></i>
+                                                        <i className="fab fa-linkedin"></i>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -321,13 +321,13 @@ const Home = () => {
                                             <div className="social">
                                                 <ul>
                                                     <li>
-                                                        <i class="fab fa-facebook"></i>
+                                                        <i className="fab fa-facebook"></i>
                                                     </li>
                                                     <li>
-                                                        <i class="fab fa-twitter"></i>
+                                                        <i className="fab fa-twitter"></i>
                                                     </li>
                                                     <li>
-                                                        <i class="fab fa-linkedin"></i>
+                                                        <i className="fab fa-linkedin"></i>
                                                     </li>
                                                 </ul>
                                             </div>

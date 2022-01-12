@@ -21,7 +21,7 @@ const AllCourses = () => {
     const handleDeleteCourse = id => {
     const proceed = window.confirm('Are you sure, you want to delete?');
     if (proceed) {
-        const url = `https://intense-hamlet-45905.herokuapp.com/course/${id}`;
+        const url = `https://intense-hamlet-45905.herokuapp.com/course-delete/${id}`;
 
         fetch(url, {
             method: 'DELETE'
