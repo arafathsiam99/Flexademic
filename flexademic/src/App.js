@@ -35,42 +35,42 @@ function App() {
         <Route exact path="/home">
           <Home />
         </Route>
-        <Route exact path="/courses">
+        <PrivateRoute exact path="/courses">
           <Courses />
-        </Route>
+        </PrivateRoute>
         <Route exact path="/login">
           <Login />
         </Route>
         <Route exact path="/register">
           <Register />
         </Route>
-        <Route path="/add-course">
+        <PrivateRoute path="/add-course">
           <AddCourse></AddCourse>
-        </Route>
-        <Route path="/all-courses">
+        </PrivateRoute>
+        <PrivateRoute path="/all-courses">
           <AllCourses />
-        </Route>
-        <Route path="/my-courses">
+        </PrivateRoute>
+        <PrivateRoute path="/my-courses">
           <MyCourses />
-        </Route>
-        <Route path="/add-course-content/:courseId">
+        </PrivateRoute>
+        <PrivateRoute path="/add-course-content/:courseId">
           <AddCourseContent />
-        </Route>
-        <Route path="/get-course-content/:courseId">
+        </PrivateRoute>
+        <PrivateRoute path="/get-course-content/:courseId">
           <CourseContent />
-        </Route>
+        </PrivateRoute>
         <PrivateRoute path="/course-enroll/:courseId">
           <CourseEnroll />
         </PrivateRoute>
-        <Route path="/my-enrolled-course">
+        <PrivateRoute path="/my-enrolled-course">
           <MyEnrolledCourses />
-        </Route>
-        <Route path="/all-enrolled-courses">
+        </PrivateRoute>
+        <PrivateRoute path="/all-enrolled-courses">
           <AllEnrolledCourses />
-        </Route>
-        <Route path="/add-events">
+        </PrivateRoute>
+        <PrivateRoute path="/add-events">
           <AddEvents />
-        </Route>
+        </PrivateRoute>
         <Route path="/events">
         <Event></Event>
         </Route>
